@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<PRODUCT_TYPE_simple translate="label" module="catalog">
+		<reference name="product.info">
+			<block type="catalog/product_view_type_configurable" name="product.info.availability"
+			       as="product_type_availability" template="bc_stock/stock_custom_display.phtml"/>
+		</reference>
+	</PRODUCT_TYPE_simple>
+
+	<PRODUCT_TYPE_configurable translate="label" module="catalog">
+		<reference name="product.info">
+			<block type="catalog/product_view_type_configurable" name="product.info.availability"
+			       as="product_type_availability" template="bc_stock/stock_custom_display.phtml"/>
+		</reference>
+		<reference name="product.info.options.configurable.after">
+			<action method="unsetChildren"></action>
+			<block type="core/template" template="bc_stock/swatch-js.phtml"/>
+		</reference>
+	</PRODUCT_TYPE_configurable>
+
+	<PRODUCT_TYPE_virtual translate="label" module="catalog">
+		<reference name="product.info">
+			<block type="catalog/product_view_type_configurable" name="product.info.availability"
+			       as="product_type_availability" template="bc_stock/stock_custom_display.phtml"/>
+		</reference>
+	</PRODUCT_TYPE_virtual>
+
+	<PRODUCT_TYPE_bundle translate="label" module="catalog">
+		<reference name="product.info">
+			<block type="catalog/product_view_type_configurable" name="product.info.availability"
+			       as="product_type_availability" template="bc_stock/stock_custom_display.phtml"/>
+		</reference>
+	</PRODUCT_TYPE_bundle>
+
+	<PRODUCT_TYPE_downloadable translate="label" module="catalog">
+		<reference name="product.info">
+			<block type="catalog/product_view_type_configurable" name="product.info.availability"
+			       as="product_type_availability" template="bc_stock/stock_custom_display.phtml"/>
+		</reference>
+	</PRODUCT_TYPE_downloadable>
+
+	<PRODUCT_TYPE_grouped translate="label" module="catalog">
+		<reference name="product.info">
+			<block type="catalog/product_view_type_configurable" name="product.info.availability"
+			       as="product_type_availability" template="bc_stock/stock_custom_display.phtml"/>
+		</reference>
+	</PRODUCT_TYPE_grouped>
+</layout>

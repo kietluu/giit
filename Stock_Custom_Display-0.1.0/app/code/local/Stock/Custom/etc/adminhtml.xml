@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<menu>
+		<catalog>
+			<children>
+				<stock_custom_display translate="label" model="stock_custom">
+					<title>Custom Stock Display</title>
+					<action>adminhtml/display</action>
+				</stock_custom_display>
+			</children>
+		</catalog>
+	</menu>
+	<acl>
+		<resources>
+			<admin>
+				<children>
+					<catalog>
+						<children>
+							<stock_custom_display>
+								<title>Custom Stock Display</title>
+							</stock_custom_display>
+						</children>
+					</catalog>
+				</children>
+			</admin>
+		</resources>
+	</acl>
+</config>

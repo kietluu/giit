@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Stock_Custom>
+            <version>0.1.0</version>
+        </Stock_Custom>
+    </modules>
+    <global>
+        <models>
+            <stock_custom>
+                <class>Stock_Custom_Model</class>
+                <resourceModel>stock_custom_resource</resourceModel>
+            </stock_custom>
+            <stock_custom_resource>
+                <class>Stock_Custom_Model_Resource</class>
+                <entities>
+                    <display>
+                        <table>stock_custom_display</table>
+                    </display>
+                </entities>
+            </stock_custom_resource>
+        </models>
+        <blocks>
+            <stock_custom>
+                <class>Stock_Custom_Block</class>
+            </stock_custom>
+        </blocks>
+        <helpers>
+            <stock_custom>
+                <class>Stock_Custom_Helper</class>
+            </stock_custom>
+        </helpers>
+        <resources>
+            <stock_custom_setup>
+                <setup>
+                    <module>Stock_Custom</module>
+                </setup>
+            </stock_custom_setup>
+        </resources>
+    </global>
+
+	<frontend>
+		<layout>
+			<updates>
+				<stock_custom>
+					<file>stock/stock_custom.xml</file>
+				</stock_custom>
+			</updates>
+		</layout>
+	</frontend>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <stock_custom before="Mage_Adminhtml">Stock_Custom_Adminhtml</stock_custom>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <stock_custom>
+                    <file>stock/stock_display.xml</file>
+                </stock_custom>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

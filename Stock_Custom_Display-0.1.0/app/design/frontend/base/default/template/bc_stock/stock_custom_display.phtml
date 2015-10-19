@@ -1,0 +1,85 @@
+<?php
+
+$current_store_id = Mage::app()->getStore()->getId();
+$model = Mage::getModel('stock_custom/display')->getCollection();
+$display = $model->addFieldToSelect('*')
+	->addFieldToFilter('is_active', 1)
+	->addFieldToFilter('store_id', array(
+		array('like' => '%' . $current_store_id . '%'),
+		array('like' => '%0%')
+	))
+	->getFirstItem()
+	->getData();
+
+$status_instock = 'In stock';
+$status_outstock = 'Out of stock';
+
+if ($display['text_out_stock'] != '')
+	$status_outstock = $display['text_out_stock'];
+
+$_product = $this->getProduct();
+$qty = (int)Mage::getModel('cataloginventory/stock_item')
+	->loadByProduct($_product)->getQty();
+
+if ($display['text_default'] != '' && $qty != 0) {
+	$status_instock = $display['text_default'];
+	$status_instock = str_replace('%qty%', $qty, $status_instock);
+}
+?>
+<?php if ($this->displayProductStockStatus()): ?>
+	<?php if ($_product->isAvailable()): ?>
+		<p class="availability in-stock">
+			<span class="label"><?php echo $this->helper('catalog')->__('Availability:') ?></span>
+			<span class="value"><?php echo $status_instock; ?></span>
+		</p>
+	<?php else: ?>
+		<p class="availability out-of-stock">
+			<span class="label"><?php echo $this->helper('catalog')->__('Availability:') ?></span>
+			<span class="value"><?php echo $status_outstock; ?></span>
+		</p>
+	<?php endif; ?>
+<?php endif; ?>
+
+<script type="text/javascript">
+	var StockCustomDisplay = Class.create(Product.ConfigurableSwatches, {
+		setStockStatus: function (inStock) {
+			if (inStock) {
+				this._E.availability.each(function (el) {
+					var el = $(el);
+					el.addClassName('in-stock').removeClassName('out-of-stock');
+					var stt = '<?php echo $status_instock; ?>';
+					el.select('span').invoke('update', Translator.translate(stt));
+				});
+
+				this._E.cartBtn.btn.each(function (el, index) {
+					var el = $(el);
+					el.disabled = false;
+					el.removeClassName('out-of-stock');
+					el.writeAttribute('onclick', this._E.cartBtn.onclick);
+					el.title = '' + Translator.translate(this._E.cartBtn.txt[index]);
+					el.select('span span').invoke('update', Translator.translate(this._E.cartBtn.txt[index]));
+				}.bind(this));
+			} else {
+				var sttout = '<?php echo $status_outstock; ?>';
+				this._E.availability.each(function (el) {
+					var el = $(el);
+					el.addClassName('out-of-stock').removeClassName('in-stock');
+
+					el.select('span').invoke('update', Translator.translate(sttout));
+				});
+				this._E.cartBtn.btn.each(function (el) {
+					var el = $(el);
+					el.addClassName('out-of-stock');
+					el.disabled = true;
+					el.removeAttribute('onclick');
+					el.observe('click', function (event) {
+						Event.stop(event);
+						return false;
+					});
+					el.writeAttribute('title', Translator.translate(sttout));
+					el.select('span span').invoke('update', Translator.translate(sttout));
+				});
+			}
+		}
+	});
+</script>

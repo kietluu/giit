@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Stock_Custom_Display</name>
+    <version>0.1.0</version>
+    <stability>stable</stability>
+    <license>OSL</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Stock_Custom_Display</summary>
+    <description>Stock_Custom_Display</description>
+    <notes>Stock_Custom_Display</notes>
+    <authors><author><name>kietluu</name><user>kietluu</user><email>kiet.luu@bluecomgroup.com</email></author></authors>
+    <date>2015-10-17</date>
+    <time>09:07:52</time>
+    <contents><target name="magelocal"><dir name="Stock"><dir name="Custom"><dir name="Block"><dir name="Adminhtml"><dir name="Display"><dir name="Edit"><file name="Form.php" hash="ab205d36bc0e81bdfc792775d3844c73"/><dir name="Tab"><file name="Label.php" hash="17abe7b3209ccdb64d88c7ddad48139d"/><file name="Main.php" hash="2f235e2b8e46146887338db7066a72fc"/></dir><file name="Tabs.php" hash="9bee7047b3a547b889cdd9833f71e128"/></dir><file name="Edit.php" hash="b0031d06d57fcff9f0e5e41af37d6f20"/><file name="Grid.php" hash="68c6bc248424d9b92d1ed99afa499f54"/></dir><file name="Display.php" hash="bfcd2687bb257285d7f6b9b0c1dc7776"/></dir></dir><dir name="Helper"><file name="Data.php" hash="da7bf230a355c8f6523fdcaaa3218b26"/></dir><dir name="Model"><file name="Display.php" hash="7fc3e264265aec64c692d1036a186d35"/><dir name="Resource"><dir name="Display"><file name="Collection.php" hash="ace6a6536f147e276dd72961e05f638b"/></dir><file name="Display.php" hash="7d204f181a6c705d4f4fff47bc948355"/></dir></dir><dir name="controllers"><dir name="Adminhtml"><file name="DisplayController.php" hash="e9660c2322f8505b4c46567581618a64"/></dir></dir><dir name="data"><dir name="stock_custom_setup"><file name="data-install-0.1.0.php" hash="3430b8586d73c6ee4754bf7f10d8c9e5"/></dir></dir><dir name="etc"><file name="adminhtml.xml" hash="a2cfa99c07f237c9049ac82739681c21"/><file name="config.xml" hash="8b47882d861fcba4da0662c8be668623"/></dir><dir name="sql"><dir name="stock_custom_setup"><file name="install-0.1.0.php" hash="9492d7d5400ac30e2639fac3c6e4faa7"/></dir></dir></dir></dir></target><target name="magedesign"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="layout"><dir name="stock"><file name="stock_display.xml" hash="49b7c1a7899f8251f4626ac0cfaa8035"/></dir></dir></dir></dir></dir><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><dir name="stock"><file name="stock_custom.xml" hash="73dc3197396a71c06b6d7c081ea38c94"/></dir></dir><dir name="template"><dir name="bc_stock"><file name="stock_custom_display.phtml" hash="1a5aa4b5df5198adbab30e9b6c48ad55"/><file name="swatch-js.phtml" hash="5636d98efb27c543dfcb5caf560cd361"/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Stock_Custom.xml" hash="f81bd303f9f19516d8497778c980eb86"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.0.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

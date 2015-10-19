@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+	<adminhtml_display_index>
+		<reference name="content">
+			<block type="stock_custom/adminhtml_display" name="stock_custom_display"/>
+		</reference>
+	</adminhtml_display_index>
+
+	<adminhtml_display_edit>
+		<reference name="left">
+			<block type="stock_custom/adminhtml_display_edit_tabs" name="stock_custom_display_edit_tabs">
+				<block type="stock_custom/adminhtml_display_edit_tab_main" name="stock_custom_edit_tab_main"/>
+				<block type="stock_custom/adminhtml_display_edit_tab_label" name="stock_custom_edit_tab_label"/>
+				<action method="addTab">
+					<name>main_section</name>
+					<block>stock_custom_edit_tab_main</block>
+				</action>
+				<action method="addTab">
+					<name>labels_section</name>
+					<block>stock_custom_edit_tab_label</block>
+				</action>
+			</block>
+		</reference>
+	</adminhtml_display_edit>
+</layout>
